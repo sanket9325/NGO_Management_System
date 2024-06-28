@@ -1,0 +1,62 @@
+{% extends "layout_user.html" %}
+{% block body %}
+
+<style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+
+      position: relative;
+  }
+
+  body
+        {
+        background-image:url('/static/images/bg6.jpg');
+        background-size:100% 100%;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+
+        }
+  </style>
+
+<!-- News Start -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-sm-4">
+          <h2>Latest News:</h2>
+          <h5 style="text-align: justify;">{{latestnews.title}}</h5>
+          <h5>{{latestnews.city}}, {{latestnews.date}}</h5>
+          <div><img src="/static/upload/{{latestnews.image}}" height="240px" width="100%"></div>
+          <p style="text-align: justify;">{{latestnews.description}}</p>
+          <div><br>
+            <img src="/static/upload/breaking-news-news.gif" height="100px" width="200px">
+          </div><br>
+          <div>
+            <img src="/static/upload/newz-reports-breaking-news.gif" height="100px" width="200px">
+          </div>
+          <hr class="d-sm-none"><br>
+          <div class="alert alert-success fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <p><strong>Ey!</strong></p>
+            People are looking at your profile. Find out who.
+          </div>
+        </div>
+
+        <div class="col-sm-8">
+            {% for news1 in news %}
+          <h3 style="text-align: justify;">{{news1.title}}</h3>
+          <h5>{{news1.city}}, {{news1.date}}</h5>
+          <div><img src="/static/upload/{{news1.image}}" height="350px" width="100%"></div>
+          <p></p>
+          <p style="text-align: justify;">{{news1.description}}</p><hr>
+            {% endfor %}
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- News End -->
+
+{% endblock %}

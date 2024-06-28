@@ -1,0 +1,37 @@
+{% extends "layout_admin.html" %}
+{% block body %}
+
+<!-- Admin Vision Table Start -->
+<br><br>
+    <div style="margin-left:40px;margin-right:40px;">
+       <table class="table table table-hover table-bordered shadow" id="admin_event_table">
+           <tr class="table-primary">
+               <th>Sr. No</th>
+               <th>Name</th>
+               <th>Mobile</th>
+               <th>Email</th>
+               <th>Donation Type</th>
+               <th>Visiting Date</th>
+               <th>Visiting Time</th>
+               <th>Visit People Count</th>
+               <th>Registration Date</th>
+           </tr>
+           {% set index = 1 %}
+            {% for eventreg1 in eventreg %}
+           <tr class="table-light">
+               <td>{{ loop.index }}</td>
+               <td>{{eventreg1.name}}</td>
+               <td>{{eventreg1.mobile}}</td>
+               <td>{{eventreg1.email}}</td>
+               <td>{{eventreg1.donation_type}}</td>
+               <td>{{eventreg1.visit_date}}</td>
+               <td>{{eventreg1.visit_time}}</td>
+               <td>{{eventreg1.total_people}}</td>
+               <td>{{eventreg1.cur_date}}</td>
+           </tr>
+           {% set index = index + 1 %}
+           {% endfor %}
+       </table>
+    </div>
+
+{% endblock %}

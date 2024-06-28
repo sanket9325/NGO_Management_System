@@ -1,0 +1,108 @@
+{% extends "layout_admin.html" %}
+{% block body %}
+
+<style>
+        body{ margin:0;
+            padding:0;}
+             #bg {
+                    width: 100%;
+                   height: 100%;
+                    background-image:url('Images/bgimagmv.jpeg');
+                    background-size:cover;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    animation-name: example;
+                    animation-duration: 5s;
+
+                 }
+            @keyframes example {
+                    from {background-image:url('Images/bgimagmv.jpeg') ;}
+                    to {background-image:url('Images/bgimgmvdown.jpeg') ;}
+                  }
+             #missiontable
+                {margin:40px;
+                font-size:24px;
+                border-radius:10px;
+
+                margin-bottom:100px;
+                background-image:url('Images/visionimg.png');
+                background-position:center center;
+                background-image:cover;
+                background-repeat:no-repeat;
+                }
+    </style>
+
+<style>
+        body
+        {
+        background-image:linear-gradient(to left, #757F9A,#D7DDE8, #eef2f3)
+        }
+    </style>
+
+<!-- Admin Vision Start -->
+
+    <br><br><br>
+    <center>
+    <div class="container-fluid" id="bg">
+        <div class="row-fluid justify-content-center ">
+            <div class="col-lg-6 text-center shadow-lg bg-light" id="missiontable" style="">
+                <div style="background-image:linear-gradient(to right ,#000046,#1CB5E0); padding:8px">
+                    <h1 style="text-align:left; color:white;">Add Vision</h1>
+                </div><br>
+
+                <table class="table table-hover table-borderless table-lg" >
+                    <form method="post" action="/admin_vision" enctype="multipart/form-data">
+                    <tr>
+                    <th>Vision Title :</th>
+                    <td><input type="text" class="form-control" name="txttitle" placeholder="Title"></td>
+                    </tr>
+                    <tr>
+                        <th>Description :</th><td><textarea name="txtdescription" class="form-control" rows="3" placeholder="Write Your Discription Here..." ></textarea></td>
+                    </tr>
+                    <tr>
+                        <th> Select Image :</th>
+                        <td><input name="txtimage" class="form-control form-control-sm" type="file"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align:left;"><button type="submit" class="btn btn-success">Submit</button></td>
+                    </tr>
+                    </form>
+                </table>
+            </div>
+        </div>
+     </div>
+    </center>
+
+
+
+    <!-- Admin Vision Table Start -->
+
+    <div style="margin-left:40px;margin-right:40px;">
+       <table class="table table table-hover table-bordered shadow" id="admin_event_table">
+           <tr class="table-primary">
+               <th>Vision Number</th>
+               <th>Vision Title</th>
+               <th>Vision Description</th>
+               <th>Vision Image</th>
+               <th></th>
+           </tr>
+           {% set index = 1 %}
+           {% for vision1 in vision %}
+           <tr class="table-light">
+               <td>{{loop.index}}</td>
+               <td>{{vision1.title}}</td>
+               <td>{{vision1.description}}</td>
+               <td><img src="/static/upload/{{vision1.image}}" height="70px" width="100px"></td>
+               <td><a href="/admin_visionDelete?vid={{vision1.vid}}"  class="btn btn-danger"> Delete </a></td>
+           </tr>
+           {% set index = index + 1 %}
+           {% endfor %}
+       </table>
+    </div>
+
+{% if alert_script %}
+    {{ alert_script | safe }}
+{% endif %}
+
+{% endblock %}

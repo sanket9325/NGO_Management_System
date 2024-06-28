@@ -1,0 +1,52 @@
+{% extends "layout_user.html" %}
+{% block body %}
+
+<style>
+    #main_Event_box
+    {
+    width:600px;
+    margin:auto;
+    margin-top:50px;
+    }
+</style>
+<!-- Events Registration Form Start -->
+
+    <div class="card p-2 d-flex justify-content-end shadow" id="main_Event_box">
+        <div class="card-header" style="background-image:linear-gradient(to right ,#000046,#1CB5E0);">
+            <h1 style="color:white">Event Registration</h1>
+        </div>
+          <div class="card-body" style="background-color:#EDF1F1">
+
+            <form method="post" action="/user_eventRegPage">
+                <table class="table table-hover table-borderless">
+                    <tr>
+                        <td>Donation Type</td>
+                        <td><input type="text" value="{{donation_type}}" name="txtdonationtype" class="form-control" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Visiting Date</td>
+                        <td><input type="date" name="txtvisitdate" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>Visiting Time</td>
+                        <td><input type="time" name="txtvisittime" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>Visit People Count</td>
+                        <td><input type="number" name="txtpeoplecount" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Submit" class="btn btn-success"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </div>
+{% if alert_script %}
+    {{ alert_script | safe }}
+{% endif %}
+    <!-- Events Registration Form End -->
+
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "layout_user.html" %}
+{% block body %}
+
+<style>
+    #main_box
+    {
+    width:600px;
+    margin:auto;
+    margin-top:50px;
+    }
+
+    #bank_detail
+    {
+    width:380px;
+    background-color:#8080804f;
+    }
+
+    #bank_detail2
+    {
+    width:380px;
+    background-color:#8080804f;
+
+    }
+</style>
+<!-- Donate Now Start -->
+
+<div class="card" id="main_box">
+    <form method="post" action="/user_donatenow">
+        <div class="card-header" style="background-image:linear-gradient(to right ,#000046,#1CB5E0);" >
+            <h1 style="color:white">Donate Now</h1>
+        </div>
+        <div class="card-body" style="background-color:#EDF1F1">
+            <br>
+            <table class="table table table-hover ">
+                <tr>
+                    <td>Account Number : </td>
+                    <td> <input type="text" name="txtaccno" placeholder="Enter Account Number" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>IFSC Code : </td>
+                    <td> <input type="text" name="txtifsc" placeholder="Enter IFSC Code" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Branch Name: </td>
+                    <td> <input type="text" name="txtbranch" placeholder="Enter Bank Branch Name" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Donation Amount : </td>
+                    <td> <input type="number" name="txtamount" placeholder="Enter Donation Amount" class="form-control"></td>
+                </tr>
+            </table>
+            <br>
+            <center>
+             <div id="bank_detail">
+                <h2>Bank Detail</h2>
+                 <br>
+                <h4>Go Digital Go All The Way</h4>
+                 <br>
+                 <table>
+                     <tr>
+                         <td>Bank Name</td>
+                         <td> : State Bank Of India</td>
+                     </tr>
+                     <tr>
+                         <td>ACC Holder Name</td>
+                         <td> : NGO Official </td>
+                     </tr>
+                     <tr>
+                         <td> Account Number</td>
+                         <td> : 4785125669724</td>
+                     </tr>
+                     <tr>
+                         <td>IFSC Code </td>
+                         <td> : MAHB00007415</td>
+                     </tr>
+                 </table>
+            </div>
+                <br>
+
+                 <div id="bank_detail2">
+                     <table>
+                            <tr>
+                                <td>UPI ID</td>
+                                <td> : 78414523698@upi(phone pay)</td>
+                             </tr>
+
+                            <tr>
+                                <td>UPI ID</td>
+                                 <td> : ngo_official@okcii(Google pay)</td>
+                            </tr>
+                     </table>
+                </div>
+                    <br><br>
+            <div>
+                <img src="/static/img/QR_scaner_img.png" class="border border-primary">
+            </div>
+                <br>
+                <center>
+               <a href=""><input type="submit" value="Donate Now" class="btn btn-success " ></a>
+            </center>
+        </div>
+    </form>
+</div>
+
+{% if alert_script %}
+    {{ alert_script | safe }}
+{% endif %}
+    <!-- Donate Now End -->
+
+{% endblock %}

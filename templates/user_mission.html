@@ -1,0 +1,125 @@
+{% extends "layout_user.html" %}
+{% block body %}
+
+<style>
+        body{ margin:0;
+            padding:0;}
+             #bg {
+                       background-image:linear-gradient(to top,#005AA7,#FFFDE4)
+                  }
+
+            #missiontable
+                {margin:40px;
+                font-size:24px;
+                border-radius:10px;
+                padding:32px;
+                 margin-bottom:100px;
+                 background-image:url('Images/missionvisionimg1-removebg-preview.png');
+                 background-position:left-bottom;
+                 background-image:cover;
+                 background-repeat:no-repeat;
+                 height:auto;
+                 }
+
+            #content1
+              { height:70%;
+                width:100%;
+                }
+
+            #contentright
+               {
+                    margin-top:30px;
+                    width:100vh;
+                    height: 80%;
+                    background-image:url('Images/bgimagmv.jpeg');
+                    background-size:cover;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    animation-name: example;
+                    animation-duration: 5s;
+                    animation-iteration-count: infinite;
+
+                 }
+            @keyframes example {
+                    from {background-image:url('Images/bgimagmv.jpeg') ;}
+                    to {background-image:url('Images/bgimgmvdown.jpeg') ;}
+                    50% {border-end-end-radius: 150px;}
+                    50% {font-weight: bold;}
+                    50% {box-shadow: 10px 20px 30px blue;}
+
+                  }
+
+             #contentleft
+             {
+                margin-top:30px;
+                height:auto;
+                width:100vh;
+                margin-bottom:30px;
+                margin-right:20px;
+
+             }
+    </style>
+<style>
+        body
+        {
+        background-image:url('/static/images/bg6.jpg');
+        background-size:100% 100%;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+
+        }
+    </style>
+
+<!-- Mission Start -->
+<br>
+        <center>
+        <div class=" justify-content-center" id="content1">
+            <h1>OUR MISSION</h1>
+            <div class="col-lg-6 shadow-lg" id="contentleft">
+                <!-- Carousel -->
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                  <!-- Indicators/dots -->
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                  </div>
+
+                  <!-- The slideshow/carousel -->
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="/static/upload/{{mission.image}}" style="width:100%; height:400px">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="/static/upload/news1.jpg" style="width:100%; height:400px">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="/static/upload/vision.gif" style="width:100%; height:400px">
+                    </div>
+                  </div>
+
+                  <!-- Left and right controls/icons -->
+                  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                  </button>
+                </div>
+
+                </div>
+                    <br>
+                    <div class="col-lg-6 shadow-lg bg-light" id="contentright">
+                     <h1 class="text-center" style="color:#05E9EC; font-family:Times New Roman Times, serif;">{{mission.title}}</h1>
+                    <p>{{mission.description}}<br><br></p>
+                </div>
+            </div>
+            </center>
+
+
+
+
+    <!-- Mission End -->
+
+{% endblock %}

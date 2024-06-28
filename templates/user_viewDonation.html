@@ -1,0 +1,31 @@
+{% extends "layout_user.html" %}
+{% block body %}
+
+<!-- Admin Vision Table Start -->
+<br><br>
+    <div style="margin-left:40px;margin-right:40px;">
+       <table class="table table table-hover table-bordered shadow" id="admin_event_table">
+           <tr class="table-primary">
+               <th>Sr. No</th>
+               <th>Account Number</th>
+               <th>IFSC Code</th>
+               <th>Branch Name</th>
+               <th>Donation Amount</th>
+               <th>Date</th>
+           </tr>
+           {% set index = 1 %}
+            {% for donation in donations %}
+           <tr class="table-light">
+               <td>{{ index }}</td>
+               <td>{{donation.account_number}}</td>
+               <td>{{donation.ifsc_code}}</td>
+               <td>{{donation.branch_name}}</td>
+               <td>{{donation.amount}}</td>
+               <td>{{donation.date}}</td>
+           </tr>
+           {% set index = index + 1 %}
+           {% endfor %}
+       </table>
+    </div>
+
+{% endblock %}

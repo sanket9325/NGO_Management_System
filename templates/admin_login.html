@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+        body
+        {
+        background-image:linear-gradient(to left, #757F9A,#D7DDE8, #eef2f3)
+        }
+
+        #main_box
+        {
+        width:600px;
+        margin:auto;
+        margin-top:50px;
+
+        }
+</style>
+
+<!-- Admin Login Start -->
+
+    <div class="card" id="main_box">
+        <div class="card-header" style="background-image:linear-gradient(to right ,#000046,#1CB5E0);">
+            <h1 style="color:white;">Admin Login</h1>
+        </div>
+        <div class="card-body" id="content_box">
+            <form method="post" action="/admin_login">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Admin ID : </td>
+                        <td> <input type="text" name="txtusername" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>Password : </td>
+                        <td><input type="password" name="txtpassword" class="form-control"> </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Login" class="btn btn-success"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+{% if alert_script %}
+    {{ alert_script | safe }}
+{% endif %}
+
+    <!-- Admin Login End -->
+
+{% endblock %}

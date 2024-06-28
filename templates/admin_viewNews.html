@@ -1,0 +1,28 @@
+{% extends "layout_admin.html" %}
+{% block body %}
+
+<br><br>
+<div style="margin-left:40px;margin-right:40px;">
+       <table class="table table table-hover table-bordered shadow" id="admin_event_table">
+           <tr class="table-primary">
+               <th>Sr. No.</th>
+               <th>Mission Title</th>
+               <th>Mission Description</th>
+               <th>Mission Image</th>
+               <th>Delete</th>
+           </tr>
+           {% set index = 1 %}
+           {% for news1 in news %}
+           <tr class="table-light">
+               <td>{{ loop.index }}</td>
+               <td>{{news1.title}}</td>
+               <td>{{news1.description}}</td>
+               <td><img src="/static/upload/{{news1.image}}" height="70px" width="100px"></td>
+               <td><a href="/admin_newsDelete?nid={{news1.nid}}"  class="btn btn-danger"> Delete </a></td>
+           </tr>
+           {% set index = index + 1 %}
+           {% endfor %}
+       </table>
+    </div>
+
+{% endblock %}

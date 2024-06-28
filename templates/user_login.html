@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+        body
+        {
+        background-image:url('/static/img/bg8.jpg');
+        background-size:100% 100%;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        }
+
+        #main_box
+        {
+        width:600px;
+        margin:auto;
+        margin-top:50px;
+
+        }
+</style>
+
+<!-- User Login Start -->
+
+    <div class="card" id="main_box">
+    <div class="card-header" style="background-image:linear-gradient(to right ,#000046,#1CB5E0);" >
+        <h1 style="color:white">User Login</h1>
+    </div>
+    <div class="card-body" id="content_box">
+        <form method="post" action="/user_login">
+            <table class="table table-borderless">
+                <tr>
+                    <td>User ID : </td>
+                   <td> <input type="text" id="email" name="txtusername" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Password : </td>
+                    <td><input type="password" id="password" name="txtpassword" class="form-control"> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Login" class="btn btn-success"></td>
+                </tr>
+            </table>
+        </form>
+        <center>
+            <a href="registration" class="btn btn-link">Registration!</a>
+        </center>
+    </div>
+</div>
+
+{% if alert_script %}
+    {{ alert_script | safe }}
+{% endif %}
+
+    <!-- User Login End -->
+
+{% endblock %}

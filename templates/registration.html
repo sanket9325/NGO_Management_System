@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block body %}
+
+ <style>
+        body
+        {
+        background-image:url('/static/img/bg8.jpg');
+        background-size:100% 100%;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        }
+
+        #main_box
+        {
+        width:600px;
+        margin:auto;
+        margin-top:50px;
+
+        }
+    </style>
+<br>
+<!-- Registration Start -->
+
+        <div class="card" id="main_box">
+            <div class="card-header" style="background-image:linear-gradient(to right ,#000046,#1CB5E0);">
+                <h2 style="color:white;">Registration</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/registration" enctype="multipart/form-data">
+                    <h6>Name</h6>
+                    <input type="text" name="txtname" placeholder="Enter the Name" class="form-control" required>
+                    <br>
+                    <h6>Email</h6>
+                    <input type="email" name="txtemail" placeholder="Enter the Email" class="form-control" required>
+                    <br>
+                    <h6>Mobile Number</h6>
+                    <input type="tel" name="txtmobile" placeholder="Enter the Mobile Number" class="form-control" maxlength="10" required>
+                    <br>
+                    <h6>Address</h6>
+                    <textarea class="form-control" name="txtaddress" rows="3" placeholder="Enter the Address" required></textarea>
+                    <br>
+                    <h6>Date Of Birth</h6>
+                    <input type="date" name="txtdob" class="form-control" required>
+                    <br>
+                    <h6>Gender</h6>
+                    <input type="radio" value="Male"  name="gender" >Male &ensp;
+                    <input type="radio" value="Female"  name="gender">Female
+                    <br>
+                    <br>
+                    <h6>Username</h6>
+                    <input type="text" name="txtusername" placeholder="Enter the Username" class="form-control" required>
+                    <br>
+                    <h6>Password</h6>
+                    <input type="password" name="txtpassword" id="password" placeholder="Enter the Password" class="form-control" required >
+                    <br>
+                    <h6>Re-enter Password</h6>
+                    <input type="password" name="txtrepassword" id="confirm_password" placeholder="Re-Enter the Password" class="form-control" required>
+                    <br>
+                    <h6>Photo</h6>
+                    <input type="file" name="fuimage" placeholder="Choose photo" required>
+                    <br><br>
+                    <center>
+                        <input type="submit" value="Register" class="btn btn-success">
+                    </center>
+                </form>
+                <center>
+                    <a class="btn btn-link" href="user_login">Already Registered!</a>
+                </center>
+            </div>
+
+        </div>
+
+{% if alert_script %}
+    {{ alert_script | safe }}
+{% endif %}
+<!-- Registration End -->
+
+{% endblock %}
